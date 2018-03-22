@@ -1,25 +1,26 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the GuardadosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {HistorialProvider} from "../../providers/historial/historial";
+import {ScanData} from "../../model/scan-data.model";
 
-@IonicPage()
+
 @Component({
   selector: 'page-guardados',
   templateUrl: 'guardados.html',
 })
 export class GuardadosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  historial:ScanData[] = [];
+
+  constructor(private _historial : HistorialProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GuardadosPage');
+    this.historial = this._historial.cargar_historial();
+  }
+
+  abrir(index:number){
+    this._historial.abrir_scan(index);
   }
 
 }
