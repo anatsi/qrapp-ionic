@@ -10,6 +10,7 @@ import { HomePage, GuardadosPage, TabsPage, MapaPage } from '../pages/index.page
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HistorialProvider } from '../providers/historial/historial';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,10 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDEQ10rcKwFc3h3Y-yVHxLYag6zSQfH3SI'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

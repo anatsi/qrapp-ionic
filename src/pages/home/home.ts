@@ -22,7 +22,16 @@ export class HomePage {
     console.log('escaneando...');
 
     if(!this.platform.is('cordova')){
-      this._historial.agregar_historial('http://google.com');
+      this._historial.agregar_historial( `BEGIN:VCARD
+VERSION:2.1
+N:Kent;Clark
+FN:Clark Kent
+ORG:
+TEL;HOME;VOICE:12345
+TEL;TYPE=cell:67890
+ADR;TYPE=work:;;;
+EMAIL:clark@superman.com
+END:VCARD` );
       return;
     }
 
